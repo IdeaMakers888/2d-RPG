@@ -1,0 +1,30 @@
+package Launch.entities.statics;
+
+import java.awt.Graphics;
+
+import Display.gfx.Assets;
+import Launch.Handler;
+
+public class Rock extends StaticEntity{
+
+	public Rock(Handler handler, float x, float y) {
+		super(handler, x, y, 100, 90);
+		
+		bounds.x = 0;
+		bounds.y = 50;
+		bounds.width = 100;
+		bounds.height = 25;
+	}
+
+	@Override
+	public void update() {
+		
+	}
+
+	@Override
+	public void render(Graphics g) {
+		g.drawImage(Assets.rocks[4], (int) (x - handler.getGameCamera().getxOffset()),
+								 (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+	}
+
+}

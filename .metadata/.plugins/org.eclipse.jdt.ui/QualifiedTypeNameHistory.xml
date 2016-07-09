@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="Launch.states.State"/>
+<fullyQualifiedTypeName name="Launch.states.GameState"/>
+<fullyQualifiedTypeName name="Launch.states.MenuState"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="Launch.utils.Utils"/>
+<fullyQualifiedTypeName name="Launch.input.KeyManager"/>
+<fullyQualifiedTypeName name="Launch.entities.Entity"/>
+<fullyQualifiedTypeName name="Launch.tiles.Tile"/>
+<fullyQualifiedTypeName name="Launch.entities.creatures.Player"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="Launch.Handler"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
+<fullyQualifiedTypeName name="Display.ui.UIManager"/>
+<fullyQualifiedTypeName name="Display.ui.UIImageButton"/>
+<fullyQualifiedTypeName name="Display.gfx.Assets"/>
+<fullyQualifiedTypeName name="Display.ui.ClickListener"/>
+</qualifiedTypeNameHistroy>

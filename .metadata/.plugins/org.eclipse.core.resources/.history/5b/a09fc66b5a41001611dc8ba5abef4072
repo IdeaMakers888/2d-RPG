@@ -1,0 +1,5 @@
+package Launch.entities;
+
+public class EntityManager {
+
+}

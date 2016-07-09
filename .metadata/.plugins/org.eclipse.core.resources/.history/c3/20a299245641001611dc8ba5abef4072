@@ -1,0 +1,5 @@
+package Launch.entities.statics;
+
+public class Tree extends StaticEntity {
+
+}

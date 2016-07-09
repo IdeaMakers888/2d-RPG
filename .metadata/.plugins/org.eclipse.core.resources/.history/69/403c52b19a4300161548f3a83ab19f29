@@ -1,0 +1,37 @@
+package Launch.states;
+
+import java.awt.Graphics;
+
+import Display.gfx.Assets;
+import Display.ui.ClickListener;
+import Display.ui.UIImageButton;
+import Display.ui.UIManager;
+import Launch.Handler;
+
+public class MenuState extends State{
+
+	private UIManager uiManager;
+	
+	public MenuState(Handler handler){
+		super(handler);
+		uiManager = new UIManager(handler);
+		
+		uiManager.addObject(new UIImageButton(200, 200, 220, 71, Assets.btn_start, new ClickListener(){
+			@Override
+			public void onClick() {
+				State.setState(handler.getGame().gameState);
+			}
+		}));
+	}	
+	
+	@Override
+	public void update() {
+		uiManager.update();
+	}
+
+	@Override
+	public void render(Graphics g) {
+		uiManager.render(g);
+	}
+
+}

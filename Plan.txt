@@ -1,0 +1,4 @@
+1. Game Concept.
+2. Game Prototype. Balsamiq. Convert button, extract .png.
+3. Code planning. draw.io. 
+4. Window. JFrame(title, width, heigth) -> import.

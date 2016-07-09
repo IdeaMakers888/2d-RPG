@@ -1,0 +1,31 @@
+package Launch.entities.statics;
+
+import java.awt.Graphics;
+
+import Display.gfx.Assets;
+import Launch.Handler;
+import Launch.tiles.Tile;
+
+public class Tree extends StaticEntity {
+
+	public Tree(Handler handler, float x, float y) {
+		super(handler, x, y, Tile.TILEWIDTH * 2, 185);
+		
+		bounds.x = 32;
+		bounds.y = 135;
+		bounds.width = 50;
+		bounds.height = 55;
+	}
+
+	@Override
+	public void update() {
+		
+	}
+
+	@Override
+	public void render(Graphics g) {
+		g.drawImage(Assets.tree, (int) (x - handler.getGameCamera().getxOffset()),
+								 (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+	}
+	
+}

@@ -1,0 +1,40 @@
+package Launch.states;
+
+import java.awt.Graphics;
+
+import Launch.Handler;
+import Launch.entities.creatures.Player;
+import Launch.entities.statics.Tree;
+import Launch.worlds.World;
+
+public class GameState extends State{
+
+	private Player player;
+	private World world;
+	private Tree tree;
+	
+	public GameState(Handler handler){
+		super(handler);
+		world = new World(handler, "res/worlds/world1.txt");
+		handler.setWorld(world);
+		player = new Player(handler, 100, 100);
+		tree = new Tree(handler, 400, 450);
+		
+	}
+	
+	@Override
+	public void update() {
+		world.update();
+		player.update();
+		tree.update();
+	}
+
+	@Override
+	public void render(Graphics g) {
+		world.render(g);
+		player.render(g);
+		tree.render(g);
+	}
+
+	
+}

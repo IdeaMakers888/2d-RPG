@@ -1,0 +1,27 @@
+package Launch.states;
+
+import java.awt.Graphics;
+
+import Display.ui.UIManager;
+import Launch.Handler;
+
+public class MenuState extends State{
+
+	private UIManager uiManager;
+	
+	public MenuState(Handler handler){
+		super(handler);
+		uiManager = new UIManager(handler);
+	}	
+	
+	@Override
+	public void update() {
+		uiManager.update();
+	}
+
+	@Override
+	public void render(Graphics g) {
+		uiManager.render(g);
+	}
+
+}
