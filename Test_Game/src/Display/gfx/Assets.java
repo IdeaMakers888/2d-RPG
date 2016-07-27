@@ -7,18 +7,26 @@ public class Assets {
 	
 	private static final int width = 64, height = 64;
 
-	public static BufferedImage grass, soil, rock_tile, tree, player_stands;
+	public static BufferedImage grass, soil, rock_tile, tree, wood;
 	public static BufferedImage[] player_up, player_down, player_left, player_right,
+								  player_runsLeft, player_runsRight,
+								  player_stands_left, player_smokes_left, player_stands_right, player_smokes_right,
+								  player_atks_left, player_atks_right, player_atks_up, player_atks_down,
 								  btn_start,
 								  rocks;
 	
 	public static void init(){
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sprite.png"));
-		SpriteSheet player_sheet = new SpriteSheet(ImageLoader.loadImage("/textures/professor_walk_cycle_no_hat.png"));
-		SpriteSheet tree_sheet = new SpriteSheet(ImageLoader.loadImage("/textures/tree1.png"));
+		SpriteSheet player_sheet = new SpriteSheet(ImageLoader.loadImage("/textures/bd_spriteList.png"));
 		SpriteSheet btn_sheet = new SpriteSheet(ImageLoader.loadImage("/textures/button-play.png"));
 		SpriteSheet rocks_sheet = new SpriteSheet(ImageLoader.loadImage("/textures/rocks.png"));
+		SpriteSheet tree_sheet = new SpriteSheet(ImageLoader.loadImage("/textures/tree1.png"));
+		
+		SpriteSheet wood_sheet = new SpriteSheet(ImageLoader.loadImage("/textures/wood.png"));
 
+		//Items
+		wood = wood_sheet.crop(0, 0, 32, 32);
+		
 		//Button
 		btn_start = new BufferedImage[2];
 
@@ -26,31 +34,84 @@ public class Assets {
 		btn_start[1] = btn_sheet.crop(0, 72, 204, 71);
 
 		// Player
-		player_stands = player_sheet.crop(0, height * 2, width, height);
 		
-		player_up = new BufferedImage[9];
+		//Stands
+		player_smokes_left = new BufferedImage[5];
 		
-		for(int i = 0; i < 9; i++){
-			player_up[i] = player_sheet.crop(i * width, 0, width, height);
+		for(int i = 0; i < 5 ; i++){
+			player_smokes_left[i] = player_sheet.crop(i * 77, 0, 77, 97);
 		}
 		
-		player_down = new BufferedImage[9];
+		player_smokes_right = new BufferedImage[5];
 		
-		for(int i = 0; i < 9; i++){
-			player_down[i] = player_sheet.crop(i * width, height * 2, width, height);
+		for(int i = 0; i < 5 ; i++){
+			player_smokes_right[i] = player_sheet.crop(i * 77, 97, 77, 97);
 		}
 		
-		player_left = new BufferedImage[9];
+		player_stands_left = new BufferedImage[3];
 		
-		for(int i = 0; i < 9; i++){
-			player_left[i] = player_sheet.crop(i * width, height, width, height);
+		for(int i = 0; i < 3 ; i++){
+			player_stands_left[i] = player_sheet.crop(i * 77, 194, 77, 97);
 		}
 		
-		player_right = new BufferedImage[9];
+		player_stands_right = new BufferedImage[3];
 		
-		for(int i = 0; i < 9; i++){
-			player_right[i] = player_sheet.crop(i * width, height * 3, width, height);
+		for(int i = 0; i < 3 ; i++){
+			player_stands_right[i] = player_sheet.crop(i * 77, 291, 77, 97);
 		}
+		
+		//Moves
+			
+		player_left = new BufferedImage[5];
+		
+		for(int i = 0; i < 5; i++){
+			player_left[i] = player_sheet.crop(i * 66, 388, 66, 88);
+		}
+		
+		player_right = new BufferedImage[5];
+		
+		for(int i = 0; i < 5; i++){
+			player_right[i] = player_sheet.crop(i * 66, 476, 66, 88);
+		}
+		player_up = new BufferedImage[5];
+		player_up = player_left;
+
+		player_down = new BufferedImage[5];
+		player_down = player_right;
+
+		//Runs
+		
+		player_runsLeft = new BufferedImage[8];
+		
+		for(int i = 0; i < 8 ; i++){
+			player_runsLeft[i] = player_sheet.crop(i * 100, 564, 100, 85);
+		}
+		
+		player_runsRight = new BufferedImage[8];
+		
+		for(int i = 0; i < 8 ; i++){
+			player_runsRight[i] = player_sheet.crop(i * 100, 649, 100, 85);
+		}
+		
+		//Attacks
+		
+		player_atks_left = new BufferedImage[2];
+		
+		for(int i = 0; i < 2 ; i++){
+			player_atks_left[i] = player_sheet.crop(i * 100, 734, 100, 88);
+		}
+		
+		player_atks_right = new BufferedImage[2];
+		
+		for(int i = 0; i < 2 ; i++){
+			player_atks_right[i] = player_sheet.crop(i * 100, 822, 100, 88);
+		}
+		
+		player_atks_up = new BufferedImage[2];
+		player_atks_up = player_atks_left;
+		
+		player_atks_down = new BufferedImage[2];
+		player_atks_down = player_atks_right;
 		
 		//Rocks
 		rocks = new BufferedImage[9];

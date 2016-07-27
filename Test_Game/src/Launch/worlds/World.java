@@ -7,6 +7,7 @@ import Launch.entities.EntityManager;
 import Launch.entities.creatures.Player;
 import Launch.entities.statics.Rock;
 import Launch.entities.statics.Tree;
+import Launch.items.ItemManager;
 import Launch.tiles.Tile;
 import Launch.utils.Utils;
 
@@ -18,17 +19,21 @@ public class World {
 	private int[][] tiles;
 	//Entities
 	private EntityManager entityManager;
+	//Items
+	private ItemManager itemManager;
 	
 	public World(Handler handler, String path){
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
-		entityManager.addEntity(new Tree(handler, 300, 300));
-		entityManager.addEntity(new Tree(handler, 200, 450));
-		entityManager.addEntity(new Tree(handler, 250, 520));
+		itemManager = new ItemManager(handler);
+		
+		entityManager.addEntity(new Tree(handler, 100, 300));
+		entityManager.addEntity(new Tree(handler, 170, 300));
+		entityManager.addEntity(new Tree(handler, 230, 705));
 		entityManager.addEntity(new Rock(handler, 100, 100));
-		entityManager.addEntity(new Rock(handler, 300, 100));
-		entityManager.addEntity(new Rock(handler, 500, 100));
-		entityManager.addEntity(new Rock(handler, 700, 100));
+		entityManager.addEntity(new Rock(handler, 320, 550));
+		entityManager.addEntity(new Rock(handler, 440, 200));
+		entityManager.addEntity(new Rock(handler, 700, 330));
 		
 		loadWorld(path);
 		
@@ -37,6 +42,7 @@ public class World {
 	}
 	
 	public void update(){
+		itemManager.update();
 		entityManager.update();
 	}
 	
@@ -53,6 +59,8 @@ public class World {
 			}
 		}
 		
+		//Items
+		itemManager.render(g);
 		//Entities
 		entityManager.render(g);
 	}
@@ -93,5 +101,21 @@ public class World {
 
 	public EntityManager getEntityManager() {
 		return entityManager;
+	}
+
+	public Handler getHandler() {
+		return handler;
+	}
+
+	public void setHandler(Handler handler) {
+		this.handler = handler;
+	}
+
+	public ItemManager getItemManager() {
+		return itemManager;
+	}
+
+	public void setItemManager(ItemManager itemManager) {
+		this.itemManager = itemManager;
 	}
 }

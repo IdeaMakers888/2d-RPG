@@ -44,6 +44,8 @@ public class UIManager {
 		objects.remove(0);
 	}	
 	
+	//Getters and Setters
+	
 	public Handler getHandler() {
 		return handler;
 	}
